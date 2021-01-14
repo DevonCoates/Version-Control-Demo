@@ -4,35 +4,49 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
     public float speed;
-    public float jumpForce;
     private bool canMove;
     private Rigidbody2D theRB2D;
-    public float dashForce;
 
-    // Start is called before the first frame update
+    //Variables for jumping
+    public float jumpForce;
+    public bool grounded;
+    public LayerMask whatIsGrd;
+    public Transform grdChecker;
+    public float grdCheckerRad;
+    public float airTime;
+    public float airTimeCounter;
+
+    private Animator theAnimator;
+
     void Start()
     {
         theRB2D = GetComponent<Rigidbody2D>();
+        theAnimator = GetComponent<Animator>();
+
+        airTimeCounter = airTime;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        Debug.Log(theRB2D.position.y);
-        Debug.Log(theRB2D.position.x);
         if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
         {
             canMove = true;
         }
+
     }
 
     private void FixedUpdate()
     {
+        grounded = Physics2D.OverlapCircle(grdChecker.position, grdCheckerRad, whatIsGrd);
+
+
         MovePlayer();
         Jump();
-        Teleport();
-        Dash();
+
+
     }
 
     void MovePlayer()
@@ -40,30 +54,51 @@ public class PlayerController : MonoBehaviour
         if (canMove)
         {
             theRB2D.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, theRB2D.velocity.y);
+
+            theAnimator.SetFloat("Speed", Mathf.Abs(theRB2D.velocity.x));
+
+            if (theRB2D.velocity.x > 0)
+            {
+                transform.localScale = new Vector2(1f, 1f);
+            }
+            else if (theRB2D.velocity.x < 0)
+            {
+                transform.localScale = new Vector2(-1f, 1f);
+            }
         }
     }
 
     void Jump()
     {
-        if((theRB2D.position.y < -3.4) && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
+        if (grounded == true)
         {
-            theRB2D.velocity = new Vector2(theRB2D.velocity.x, jumpForce);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                theRB2D.velocity = new Vector2(theRB2D.velocity.x, jumpForce);
+            }
         }
-    }
-    void Teleport()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
+
+
+        if (Input.GetKey(KeyCode.Space))
         {
-            Vector2 teleport = new Vector2((-1 * theRB2D.position.x), (-1 * theRB2D.position.y));
-            theRB2D.MovePosition(teleport);
+            if (airTimeCounter > 0)
+            {
+                theRB2D.velocity = new Vector2(theRB2D.velocity.x, jumpForce);
+                airTimeCounter -= Time.deltaTime;
+            }
         }
-    }
-    void Dash()
-    {
-        dashForce = 100f;
-        if(Input.GetKeyDown(KeyCode.R))
+
+        if (Input.GetKeyUp(KeyCode.Space))
         {
-            theRB2D.velocity = new Vector2((theRB2D.position.x + dashForce), theRB2D.velocity.y);
+            airTimeCounter = 0;
         }
+
+        if (grounded)
+        {
+            airTimeCounter = airTime;
+        }
+
+        theAnimator.SetBool("Grounded", grounded);
+
     }
 }
