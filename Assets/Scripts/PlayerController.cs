@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     private Animator theAnimator;
 
+    public GameManager theGM;
+
     void Start()
     {
         theRB2D = GetComponent<Rigidbody2D>();
@@ -107,6 +109,7 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.tag == "Spike")
         {
             Debug.Log("Ouch!");
+            theGM.GameOver();
         }
     }
 }
