@@ -589,6 +589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lvToLoad: Level1
+  dfltLives: 5
 --- !u!114 &1710563993
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -485,7 +485,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7597eac5c4fbafd4f847422528f7bb07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLives: 3
   livesCounter: 0
   livesText: {fileID: 2140388231}
 --- !u!1 &104482736
@@ -1184,6 +1183,7 @@ MonoBehaviour:
   thePlayer: {fileID: 1160220136}
   victoryScreen: {fileID: 1868571150}
   gameOverScreen: {fileID: 343569958}
+  mainMenu: MainMenu
 --- !u!4 &283867728
 Transform:
   m_ObjectHideFlags: 0
@@ -2261,7 +2261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &476602045
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6017,7 +6017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1775630756
 RectTransform:
   m_ObjectHideFlags: 0
