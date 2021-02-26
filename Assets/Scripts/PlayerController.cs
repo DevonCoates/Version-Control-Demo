@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public bool teleport;
     public LayerMask whatIsTel;
     public float speed;
+    public float dfltSpeed;
     private bool canMove;
     private Rigidbody2D theRB2D;
 
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
         theAnimator = GetComponent<Animator>();
 
         airTimeCounter = airTime;
+        dfltSpeed = speed;
     }
 
 
