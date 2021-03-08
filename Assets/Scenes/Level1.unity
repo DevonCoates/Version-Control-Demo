@@ -1210,7 +1210,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.017127275, y: -0.40077603}
+  m_Offset: {x: 0.023590088, y: -0.40077603}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1221,7 +1221,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.81502676, y: 0.19844794}
+  m_Size: {x: 0.86672974, y: 0.19844794}
   m_EdgeRadius: 0
 --- !u!1 &283867726
 GameObject:
@@ -3820,7 +3820,6 @@ GameObject:
   - component: {fileID: 855888305}
   - component: {fileID: 855888304}
   - component: {fileID: 855888310}
-  - component: {fileID: 855888309}
   m_Layer: 13
   m_Name: orangeA1
   m_TagString: Enemy
@@ -3957,21 +3956,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &855888309
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855888303}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: a96d1ae279203a3428690ff415c45ffd, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!95 &855888310
 Animator:
   serializedVersion: 3
@@ -5498,7 +5482,6 @@ GameObject:
   - component: {fileID: 1474051302}
   - component: {fileID: 1474051301}
   - component: {fileID: 1474051307}
-  - component: {fileID: 1474051306}
   m_Layer: 13
   m_Name: RedA2
   m_TagString: Enemy
@@ -5635,21 +5618,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &1474051306
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1474051300}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 522baec9df5ef5045b8312c20766f931, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!95 &1474051307
 Animator:
   serializedVersion: 3
@@ -6587,7 +6555,6 @@ GameObject:
   - component: {fileID: 1688694723}
   - component: {fileID: 1688694722}
   - component: {fileID: 1688694728}
-  - component: {fileID: 1688694727}
   m_Layer: 13
   m_Name: RedA1
   m_TagString: Enemy
@@ -6724,21 +6691,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &1688694727
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1688694721}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 522baec9df5ef5045b8312c20766f931, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!95 &1688694728
 Animator:
   serializedVersion: 3
