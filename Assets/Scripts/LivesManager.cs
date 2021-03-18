@@ -18,6 +18,7 @@ public class LivesManager : MonoBehaviour
         livesCounter = PlayerPrefs.GetInt("CurrentLives");
 
         theGM = FindObjectOfType<GameManager>();
+        livesCounter = 3;
     }
 
     // Update is called once per frame
@@ -27,7 +28,7 @@ public class LivesManager : MonoBehaviour
 
         if (livesCounter < 1)
         {
-            theGM.GameOver();
+            StartCoroutine("QueGameOver");
         }
     }
 
@@ -41,5 +42,11 @@ public class LivesManager : MonoBehaviour
     {
         livesCounter++;
         PlayerPrefs.SetInt("CurrentLives", livesCounter);
+    }
+
+    IEnumerator QueGameOver()
+    {
+        yield return new WaitForSeconds(1.5f);
+        theGM.GameOver();
     }
 }

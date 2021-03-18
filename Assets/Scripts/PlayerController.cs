@@ -35,6 +35,13 @@ public class PlayerController : MonoBehaviour
     public GameManager theGM;
     private LivesManager theLM;
 
+    private bool ctrlActive;
+    private bool isDead;
+
+    private Collider2D playerCol;
+    public GameObject[] childObjs;
+    public float shockForce;
+
     void Start()
     {
         theLM = FindObjectOfType<LivesManager>();
@@ -42,8 +49,12 @@ public class PlayerController : MonoBehaviour
         theRB2D = GetComponent<Rigidbody2D>();
         theAnimator = GetComponent<Animator>();
 
+        playerCol = GetComponent<Collider2D>();
+
         airTimeCounter = airTime;
         dfltSpeed = speed;
+
+        ctrlActive = true;
     }
 
 
@@ -73,9 +84,12 @@ public class PlayerController : MonoBehaviour
         teleport = Physics2D.OverlapCircle(grdChecker.position, grdCheckerRad, whatIsTel);
         ceiling = Physics2D.OverlapCircle(ceiChecker.position, ceiCheckerRad, whatIsCei);
 
+        if(ctrlActive == true)
+        {
+            MovePlayer();
+            Jump();
+        }
 
-        MovePlayer();
-        Jump();
 
 
     }
@@ -163,9 +177,41 @@ public class PlayerController : MonoBehaviour
         if ((other.gameObject.tag == "Spike") || (other.gameObject.tag == "Enemy"))
         {
             Debug.Log("Ouch!");
-            //theGM.GameOver();
-            theGM.Reset();
             theLM.TakeLife();
+            PlayerDeath();
         }
+    }
+
+    void PlayerDeath()
+    {
+        isDead = true;
+        theAnimator.SetBool("Dead", isDead);
+
+        ctrlActive = false;
+
+        playerCol.enabled = false;
+        foreach (GameObject child in childObjs)
+            child.SetActive(false);
+
+        theRB2D.gravityScale = 2.5f;
+        theRB2D.AddForce(transform.up * shockForce, ForceMode2D.Impulse);
+
+        StartCoroutine("PlayerRespawn");
+    }
+
+    IEnumerator PlayerRespawn()
+    {
+        yield return new WaitForSeconds(1.5f);
+        isDead = false;
+        theAnimator.SetBool("Dead", isDead);
+
+        playerCol.enabled = true;
+        foreach (GameObject child in childObjs)
+            child.SetActive(true);
+
+        theRB2D.gravityScale = 5f;
+        yield return new WaitForSeconds(0.1f);
+        ctrlActive = true;
+        theGM.Reset();
     }
 }
