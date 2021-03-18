@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 9199042809295148100}
   - component: {fileID: 9199042809295148101}
   - component: {fileID: 9199042809295148102}
-  m_Layer: 13
+  m_Layer: 16
   m_Name: Collider
   m_TagString: Hurtbox
   m_Icon: {fileID: 0}
@@ -269,4 +269,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da04b2c58ca4bba4da61315090f0929d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHP: 1
+  enemyHP: 2
