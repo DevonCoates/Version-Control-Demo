@@ -1167,7 +1167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263726178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.483, z: 0}
+  m_LocalPosition: {x: 0, y: 0.258, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1342999149}
@@ -4065,6 +4065,7 @@ GameObject:
   - component: {fileID: 1256481118}
   - component: {fileID: 1256481117}
   - component: {fileID: 1256481121}
+  - component: {fileID: 1256481122}
   m_Layer: 13
   m_Name: Boss
   m_TagString: Enemy
@@ -4178,7 +4179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256481116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.5, z: 0}
+  m_LocalPosition: {x: 4, y: -2.5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 952420286}
@@ -4205,6 +4206,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1256481122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256481116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a8f7c536d5c1944b8357093a044c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 263726179}
+  shotPrefab: {fileID: 5630370133010399545, guid: ebe1c8a34b9f7324f9b2dc5c11a81aea,
+    type: 3}
+  shotForce: 10
+  timeBetweenShots: 1
+  shotTimer: 0
 --- !u!1 &1305122896
 GameObject:
   m_ObjectHideFlags: 0
